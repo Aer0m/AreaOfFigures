@@ -1,0 +1,15 @@
+C:\Users\Sekira-Andy\source\repos\AreaOfFigures\AreaOfFigures\bin\Debug\AreaOfFigures.exe.config
+C:\Users\Sekira-Andy\source\repos\AreaOfFigures\AreaOfFigures\bin\Debug\AreaOfFigures.exe
+C:\Users\Sekira-Andy\source\repos\AreaOfFigures\AreaOfFigures\bin\Debug\AreaOfFigures.pdb
+C:\Users\Sekira-Andy\source\repos\AreaOfFigures\AreaOfFigures\obj\Debug\AreaOfFigures.csprojAssemblyReference.cache
+C:\Users\Sekira-Andy\source\repos\AreaOfFigures\AreaOfFigures\obj\Debug\MainWindow.g.cs
+C:\Users\Sekira-Andy\source\repos\AreaOfFigures\AreaOfFigures\obj\Debug\App.g.cs
+C:\Users\Sekira-Andy\source\repos\AreaOfFigures\AreaOfFigures\obj\Debug\AreaOfFigures_MarkupCompile.cache
+C:\Users\Sekira-Andy\source\repos\AreaOfFigures\AreaOfFigures\obj\Debug\AreaOfFigures_MarkupCompile.lref
+C:\Users\Sekira-Andy\source\repos\AreaOfFigures\AreaOfFigures\obj\Debug\MainWindow.baml
+C:\Users\Sekira-Andy\source\repos\AreaOfFigures\AreaOfFigures\obj\Debug\AreaOfFigures.g.resources
+C:\Users\Sekira-Andy\source\repos\AreaOfFigures\AreaOfFigures\obj\Debug\AreaOfFigures.Properties.Resources.resources
+C:\Users\Sekira-Andy\source\repos\AreaOfFigures\AreaOfFigures\obj\Debug\AreaOfFigures.csproj.GenerateResource.cache
+C:\Users\Sekira-Andy\source\repos\AreaOfFigures\AreaOfFigures\obj\Debug\AreaOfFigures.csproj.CoreCompileInputs.cache
+C:\Users\Sekira-Andy\source\repos\AreaOfFigures\AreaOfFigures\obj\Debug\AreaOfFigures.exe
+C:\Users\Sekira-Andy\source\repos\AreaOfFigures\AreaOfFigures\obj\Debug\AreaOfFigures.pdb
