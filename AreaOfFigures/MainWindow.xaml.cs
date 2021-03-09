@@ -37,7 +37,7 @@ namespace AreaOfFigures
 		List<string> listTriangle = new List<string>() { "по стороне и высоте", "по двум сторонам и синусу угла",
 		"по формуле Герона", "по стороне и синусам двух прилежащих углов"};
 		List<string> listSquare = new List<string>() { "по стороне", "по диагоналям" };
-		List<string> listRRect = new List<string>() { "по катетам", "по гипотенузе и синусу двойного угла"};
+		List<string> listRTriangle = new List<string>() { "по катетам", "по гипотенузе и синусу двойного угла"};
 		List<string> listRhombus = new List<string>() { "по диагоналям", "по стороне и проведённой к ней высоте",
 		"по стороне и сиинусу угла"};
 
@@ -49,7 +49,7 @@ namespace AreaOfFigures
 
 		string RectArea2(double d, double ang)
 		{
-			return Convert.ToString(0.5 * (d * d) * Math.Sin(ang));
+			return Convert.ToString(0.5 * (d * d) * Math.Sin(ang * (Math.PI / 180)));
 		}
 
 		//параллелограмм
@@ -60,12 +60,12 @@ namespace AreaOfFigures
 
 		string ParArea2(double a, double b, double ang)
 		{
-			return Convert.ToString(a * b * Math.Sin(ang));
+			return Convert.ToString(a * b * Math.Sin(ang * (Math.PI / 180)));
 		}
 
 		string ParArea3(double d1, double d2, double ang)
 		{
-			return Convert.ToString(0.5*(d1*d2)*Math.Sin(ang));
+			return Convert.ToString(0.5*(d1*d2)*Math.Sin(ang * (Math.PI / 180)));
 		}
 
 		//круг
@@ -85,7 +85,6 @@ namespace AreaOfFigures
 		}
 
 		//квадрат
-
 		string SquareArea(double d)
 		{
 			return Convert.ToString((d * d) / 2);
@@ -99,7 +98,7 @@ namespace AreaOfFigures
 
 		string TriangleArea2(double a, double b, double ang)
 		{
-			return Convert.ToString(0.5*a*b*Math.Sin(ang));
+			return Convert.ToString(0.5*a*b*Math.Sin(ang * (Math.PI / 180)));
 		}
 
 		string HeronsFormula(double a, double b, double c)
@@ -110,18 +109,14 @@ namespace AreaOfFigures
 
 		string TriangleArea4(double a, double ang1, double ang2)
 		{
-			return Convert.ToString(((a*a)/2)*((Math.Sin(ang1))/Math.Sin(180-(ang1+ang2))));
+			return Convert.ToString(((a*a)/2)*((Math.Sin(ang1 * (Math.PI / 180)))/Math.Sin((180-(ang1+ang2)) * (Math.PI / 180))));
 		}
 
 		//прямоуг. треугольник
-		string RTriangleArea1 (double a, double b)
-		{
-			return Convert.ToString(0.5 * a * b);
-		}
 
-		string RTriangleArea2 (double c, double ang)
+		string RTriangleArea (double c, double ang)
 		{
-			return Convert.ToString((c*c*Math.Sin(2*ang))/4);
+			return Convert.ToString((c*c*Math.Sin(2*ang * (Math.PI / 180)))/4);
 		}
 
 		//ромб
@@ -132,7 +127,7 @@ namespace AreaOfFigures
 
 		string RhombusArea2(double a, double ang)
 		{
-			return Convert.ToString(a*a*Math.Sin(ang));
+			return Convert.ToString(a*a*Math.Sin(ang * (Math.PI / 180)));
 		}
 
 		//трапеция
@@ -142,7 +137,7 @@ namespace AreaOfFigures
 		}
 
 		//эллипс
-		string Ellipse(double a, double b)
+		string EllipseArea(double a, double b)
 		{
 			return Convert.ToString(Math.PI * a * b);
 		}
@@ -151,6 +146,7 @@ namespace AreaOfFigures
 		{
 			switch (FigureCB.SelectedIndex)
 			{
+		
 				case 1:
 					L1.Content = "";
 					L2.Content = "";
@@ -158,6 +154,7 @@ namespace AreaOfFigures
 					TBA.Text = "";
 					TBB.Text = "";
 					TBC.Text = "";
+					LRes.Content = "";
 					TBA.Visibility = Visibility.Hidden;
 					TBB.Visibility = Visibility.Hidden;
 					TBC.Visibility = Visibility.Hidden;
@@ -167,8 +164,6 @@ namespace AreaOfFigures
 					for (int i = 0; i < listRect.Count; i++)
 						FormulaCB.Items.Add(listRect[i]);
 
-					
-					
 					break;
 
 				case 2:
@@ -178,6 +173,7 @@ namespace AreaOfFigures
 					TBA.Text = "";
 					TBB.Text = "";
 					TBC.Text = "";
+					LRes.Content = "";
 					TBA.Visibility = Visibility.Hidden;
 					TBB.Visibility = Visibility.Hidden;
 					TBC.Visibility = Visibility.Hidden;
@@ -196,6 +192,7 @@ namespace AreaOfFigures
 					TBA.Text = "";
 					TBB.Text = "";
 					TBC.Text = "";
+					LRes.Content = "";
 					TBA.Visibility = Visibility.Hidden;
 					TBB.Visibility = Visibility.Hidden;
 					TBC.Visibility = Visibility.Hidden;
@@ -214,14 +211,15 @@ namespace AreaOfFigures
 					TBA.Text = "";
 					TBB.Text = "";
 					TBC.Text = "";
+					LRes.Content = "";
 					TBA.Visibility = Visibility.Hidden;
 					TBB.Visibility = Visibility.Hidden;
 					TBC.Visibility = Visibility.Hidden;
 
 					FormulaCB.Items.Clear();
 					FormulaCB.IsEnabled = true;
-					for (int i = 0; i < listRect.Count; i++)
-						FormulaCB.Items.Add(listRect[i]);
+					for (int i = 0; i < listTriangle.Count; i++)
+						FormulaCB.Items.Add(listTriangle[i]);
 
 					break;
 
@@ -232,14 +230,15 @@ namespace AreaOfFigures
 					TBA.Text = "";
 					TBB.Text = "";
 					TBC.Text = "";
+					LRes.Content = "";
 					TBA.Visibility = Visibility.Hidden;
 					TBB.Visibility = Visibility.Hidden;
 					TBC.Visibility = Visibility.Hidden;
 
 					FormulaCB.Items.Clear();
 					FormulaCB.IsEnabled = true;
-					for (int i = 0; i < listRRect.Count; i++)
-						FormulaCB.Items.Add(listRRect[i]);
+					for (int i = 0; i < listRTriangle.Count; i++)
+						FormulaCB.Items.Add(listRTriangle[i]);
 
 					break;
 
@@ -250,6 +249,7 @@ namespace AreaOfFigures
 					TBA.Text = "";
 					TBB.Text = "";
 					TBC.Text = "";
+					LRes.Content = "";
 					TBA.Visibility = Visibility.Hidden;
 					TBB.Visibility = Visibility.Hidden;
 					TBC.Visibility = Visibility.Hidden;
@@ -268,6 +268,7 @@ namespace AreaOfFigures
 					TBA.Text = "";
 					TBB.Text = "";
 					TBC.Text = "";
+					LRes.Content = "";
 					TBA.Visibility = Visibility.Hidden;
 					TBB.Visibility = Visibility.Hidden;
 					TBC.Visibility = Visibility.Hidden;
@@ -286,6 +287,7 @@ namespace AreaOfFigures
 					TBA.Text = "";
 					TBB.Text = "";
 					TBC.Text = "";
+					LRes.Content = "";
 					TBA.Visibility = Visibility.Hidden;
 					TBB.Visibility = Visibility.Hidden;
 					TBC.Visibility = Visibility.Hidden;
@@ -303,6 +305,7 @@ namespace AreaOfFigures
 					TBA.Text = "";
 					TBB.Text = "";
 					TBC.Text = "";
+					LRes.Content = "";
 					TBA.Visibility = Visibility.Hidden;
 					TBB.Visibility = Visibility.Hidden;
 					TBC.Visibility = Visibility.Hidden;
@@ -332,6 +335,7 @@ namespace AreaOfFigures
 							TBA.Text = "";
 							TBB.Text = "";
 							TBC.Text = "";
+							LRes.Content = "";
 							TBA.Visibility = Visibility.Hidden;
 							TBB.Visibility = Visibility.Hidden;
 							TBC.Visibility = Visibility.Hidden;
@@ -349,6 +353,7 @@ namespace AreaOfFigures
 							TBA.Text = "";
 							TBB.Text = "";
 							TBC.Text = "";
+							LRes.Content = "";
 							TBA.Visibility = Visibility.Hidden;
 							TBB.Visibility = Visibility.Hidden;
 							TBC.Visibility = Visibility.Hidden;
@@ -372,6 +377,7 @@ namespace AreaOfFigures
 							TBA.Text = "";
 							TBB.Text = "";
 							TBC.Text = "";
+							LRes.Content = "";
 							TBA.Visibility = Visibility.Hidden;
 							TBB.Visibility = Visibility.Hidden;
 							TBC.Visibility = Visibility.Hidden;
@@ -387,6 +393,7 @@ namespace AreaOfFigures
 							TBA.Text = "";
 							TBB.Text = "";
 							TBC.Text = "";
+							LRes.Content = "";
 							TBA.Visibility = Visibility.Hidden;
 							TBB.Visibility = Visibility.Hidden;
 							TBC.Visibility = Visibility.Hidden;
@@ -402,6 +409,7 @@ namespace AreaOfFigures
 							TBA.Text = "";
 							TBB.Text = "";
 							TBC.Text = "";
+							LRes.Content = "";
 							TBA.Visibility = Visibility.Hidden;
 							TBB.Visibility = Visibility.Hidden;
 							TBC.Visibility = Visibility.Hidden;
@@ -425,6 +433,7 @@ namespace AreaOfFigures
 							TBA.Text = "";
 							TBB.Text = "";
 							TBC.Text = "";
+							LRes.Content = "";
 							TBA.Visibility = Visibility.Hidden;
 							TBB.Visibility = Visibility.Hidden;
 							TBC.Visibility = Visibility.Hidden;
@@ -440,6 +449,7 @@ namespace AreaOfFigures
 							TBA.Text = "";
 							TBB.Text = "";
 							TBC.Text = "";
+							LRes.Content = "";
 							TBA.Visibility = Visibility.Hidden;
 							TBB.Visibility = Visibility.Hidden;
 							TBC.Visibility = Visibility.Hidden;
@@ -462,6 +472,7 @@ namespace AreaOfFigures
 							TBA.Text = "";
 							TBB.Text = "";
 							TBC.Text = "";
+							LRes.Content = "";
 							TBA.Visibility = Visibility.Hidden;
 							TBB.Visibility = Visibility.Hidden;
 							TBC.Visibility = Visibility.Hidden;
@@ -479,6 +490,7 @@ namespace AreaOfFigures
 							TBA.Text = "";
 							TBB.Text = "";
 							TBC.Text = "";
+							LRes.Content = "";
 							TBA.Visibility = Visibility.Hidden;
 							TBB.Visibility = Visibility.Hidden;
 							TBC.Visibility = Visibility.Hidden;
@@ -498,6 +510,7 @@ namespace AreaOfFigures
 							TBA.Text = "";
 							TBB.Text = "";
 							TBC.Text = "";
+							LRes.Content = "";
 							TBA.Visibility = Visibility.Hidden;
 							TBB.Visibility = Visibility.Hidden;
 							TBC.Visibility = Visibility.Hidden;
@@ -517,6 +530,7 @@ namespace AreaOfFigures
 							TBA.Text = "";
 							TBB.Text = "";
 							TBC.Text = "";
+							LRes.Content = "";
 							TBA.Visibility = Visibility.Hidden;
 							TBB.Visibility = Visibility.Hidden;
 							TBC.Visibility = Visibility.Hidden;
@@ -542,6 +556,7 @@ namespace AreaOfFigures
 							TBA.Text = "";
 							TBB.Text = "";
 							TBC.Text = "";
+							LRes.Content = "";
 							TBA.Visibility = Visibility.Hidden;
 							TBB.Visibility = Visibility.Hidden;
 							TBC.Visibility = Visibility.Hidden;
@@ -559,6 +574,7 @@ namespace AreaOfFigures
 							TBA.Text = "";
 							TBB.Text = "";
 							TBC.Text = "";
+							LRes.Content = "";
 							TBA.Visibility = Visibility.Hidden;
 							TBB.Visibility = Visibility.Hidden;
 							TBC.Visibility = Visibility.Hidden;
@@ -582,6 +598,7 @@ namespace AreaOfFigures
 							TBA.Text = "";
 							TBB.Text = "";
 							TBC.Text = "";
+							LRes.Content = "";
 							TBA.Visibility = Visibility.Hidden;
 							TBB.Visibility = Visibility.Hidden;
 							TBC.Visibility = Visibility.Hidden;
@@ -599,6 +616,7 @@ namespace AreaOfFigures
 							TBA.Text = "";
 							TBB.Text = "";
 							TBC.Text = "";
+							LRes.Content = "";
 							TBA.Visibility = Visibility.Hidden;
 							TBB.Visibility = Visibility.Hidden;
 							TBC.Visibility = Visibility.Hidden;
@@ -618,6 +636,7 @@ namespace AreaOfFigures
 							TBA.Text = "";
 							TBB.Text = "";
 							TBC.Text = "";
+							LRes.Content = "";
 							TBA.Visibility = Visibility.Hidden;
 							TBB.Visibility = Visibility.Hidden;
 							TBC.Visibility = Visibility.Hidden;
@@ -643,6 +662,7 @@ namespace AreaOfFigures
 							TBA.Text = "";
 							TBB.Text = "";
 							TBC.Text = "";
+							LRes.Content = "";
 							TBA.Visibility = Visibility.Hidden;
 							TBB.Visibility = Visibility.Hidden;
 							TBC.Visibility = Visibility.Hidden;
@@ -660,6 +680,7 @@ namespace AreaOfFigures
 							TBA.Text = "";
 							TBB.Text = "";
 							TBC.Text = "";
+							LRes.Content = "";
 							TBA.Visibility = Visibility.Hidden;
 							TBB.Visibility = Visibility.Hidden;
 							TBC.Visibility = Visibility.Hidden;
@@ -677,6 +698,7 @@ namespace AreaOfFigures
 							TBA.Text = "";
 							TBB.Text = "";
 							TBC.Text = "";
+							LRes.Content = "";
 							TBA.Visibility = Visibility.Hidden;
 							TBB.Visibility = Visibility.Hidden;
 							TBC.Visibility = Visibility.Hidden;
@@ -700,6 +722,7 @@ namespace AreaOfFigures
 							TBA.Text = "";
 							TBB.Text = "";
 							TBC.Text = "";
+							LRes.Content = "";
 							TBA.Visibility = Visibility.Hidden;
 							TBB.Visibility = Visibility.Hidden;
 							TBC.Visibility = Visibility.Hidden;
@@ -725,6 +748,7 @@ namespace AreaOfFigures
 							TBA.Text = "";
 							TBB.Text = "";
 							TBC.Text = "";
+							LRes.Content = "";
 							TBA.Visibility = Visibility.Hidden;
 							TBB.Visibility = Visibility.Hidden;
 							TBC.Visibility = Visibility.Hidden;
@@ -741,65 +765,190 @@ namespace AreaOfFigures
 		}
 
 		private void Butt_Click(object sender, RoutedEventArgs e)
-		{
-			switch (FigureCB.SelectedIndex)
+		{ 
+			try {
+
+				if (!(Convert.ToInt32(TBA.Text) <= 0) || (Convert.ToInt32(TBB.Text) <= 0) ||
+				(Convert.ToInt32(TBC.Text) <= 0))
+				{
+					switch (FigureCB.SelectedIndex)
+					{
+						case 1: //прямоугольник
+							switch (FormulaCB.SelectedIndex)
+							{
+								case 0:
+									LRes.Content = RectArea1(Convert.ToDouble(TBA.Text), Convert.ToDouble(TBB.Text));
+
+									break;
+
+								case 1:
+									LRes.Content = RectArea2(Convert.ToDouble(TBA.Text), Convert.ToDouble(TBB.Text));
+
+									break;
+							}
+
+							break;
+
+						case 2: //круг
+							switch (FormulaCB.SelectedIndex)
+							{
+								case 0:
+									LRes.Content = CircArea1(Convert.ToDouble(TBA.Text));
+
+									break;
+
+								case 1:
+									LRes.Content = CircArea2(Convert.ToDouble(TBA.Text));
+
+									break;
+
+								case 2:
+									LRes.Content = CircArea3(Convert.ToDouble(TBA.Text), Convert.ToDouble(TBB.Text));
+
+									break;
+							}
+
+							break;
+
+						case 3: //квадрат
+							switch (FormulaCB.SelectedIndex)
+							{
+								case 0:
+									LRes.Content = RectArea1(Convert.ToDouble(TBA.Text), Convert.ToDouble(TBA.Text));
+
+									break;
+
+								case 1:
+									LRes.Content = SquareArea(Convert.ToDouble(TBA.Text));
+
+									break;
+							}
+
+							break;
+
+						case 4: //треугольник
+							switch (FormulaCB.SelectedIndex)
+							{
+								case 0:
+									LRes.Content = TriangleArea1(Convert.ToDouble(TBA.Text), Convert.ToDouble(TBB.Text));
+
+									break;
+
+								case 1:
+									LRes.Content = TriangleArea2(Convert.ToDouble(TBA.Text), Convert.ToDouble(TBB.Text),
+										Convert.ToDouble(TBC.Text));
+
+									break;
+
+								case 2:
+									LRes.Content = HeronsFormula(Convert.ToDouble(TBA.Text), Convert.ToDouble(TBB.Text),
+										Convert.ToDouble(TBC.Text));
+
+									break;
+
+								case 3:
+									LRes.Content = TriangleArea4(Convert.ToDouble(TBA.Text), Convert.ToDouble(TBB.Text),
+										Convert.ToDouble(TBC.Text));
+
+									break;
+							}
+
+							break;
+
+						case 5: //прямоуг. треуг.
+							switch (FormulaCB.SelectedIndex)
+							{
+								case 0:
+									LRes.Content = TriangleArea1(Convert.ToDouble(TBA.Text), Convert.ToDouble(TBB.Text));
+
+									break;
+
+								case 1:
+									LRes.Content = RTriangleArea(Convert.ToDouble(TBA.Text), Convert.ToDouble(TBB.Text));
+
+									break;
+							}
+
+							break;
+
+						case 6: //параллелограмм
+							switch (FormulaCB.SelectedIndex)
+							{
+								case 0:
+									LRes.Content = ParArea1(Convert.ToDouble(TBA.Text), Convert.ToDouble(TBB.Text));
+
+									break;
+
+								case 1:
+									LRes.Content = ParArea2(Convert.ToDouble(TBA.Text), Convert.ToDouble(TBB.Text),
+										Convert.ToDouble(TBC.Text));
+
+									break;
+
+								case 2:
+									LRes.Content = ParArea3(Convert.ToDouble(TBA.Text), Convert.ToDouble(TBB.Text),
+										Convert.ToDouble(TBC.Text));
+
+									break;
+							}
+
+							break;
+
+						case 7: //ромб
+							switch (FormulaCB.SelectedIndex)
+							{
+								case 0:
+									LRes.Content = RhombusArea1(Convert.ToDouble(TBA.Text), Convert.ToDouble(TBB.Text));
+
+									break;
+
+								case 1:
+									LRes.Content = ParArea1(Convert.ToDouble(TBA.Text), Convert.ToDouble(TBB.Text));
+
+									break;
+
+								case 2:
+									LRes.Content = RhombusArea2(Convert.ToDouble(TBA.Text), Convert.ToDouble(TBA.Text));
+
+									break;
+							}
+
+							break;
+
+						case 8: //трапеция
+							switch (FormulaCB.SelectedIndex)
+							{
+								case 0:
+									LRes.Content = TrapArea(Convert.ToDouble(TBA.Text), Convert.ToDouble(TBB.Text),
+										Convert.ToDouble(TBC.Text));
+
+									break;
+							}
+
+							break;
+
+						case 9: //эллипс
+							switch (FormulaCB.SelectedIndex)
+							{
+								case 0:
+									LRes.Content = EllipseArea(Convert.ToDouble(TBA.Text), Convert.ToDouble(TBB.Text));
+
+									break;
+							}
+
+							break;
+					}
+				}
+				else
+					MessageBox.Show("Неверный формат введённых данных. Повторите ввод.",
+				"Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Error);
+
+			}
+			catch
 			{
-				case 1: //прямоугольник
-					switch (FormulaCB.SelectedIndex)
-					{
-						case 0:
-							LRes.Content = RectArea1(Convert.ToDouble(TBA.Text), Convert.ToDouble(TBB.Text));
-
-							break;
-
-						case 1:
-							LRes.Content = RectArea2(Convert.ToDouble(TBA.Text), Convert.ToDouble(TBB.Text));
-
-							break;
-					}
-
-					break;
-
-				case 2: //круг
-					switch (FormulaCB.SelectedIndex)
-					{
-						case 0:
-							LRes.Content = CircArea1(Convert.ToDouble(TBA.Text));
-
-							break;
-
-						case 1:
-							LRes.Content = CircArea2(Convert.ToDouble(TBA.Text));
-
-							break;
-
-						case 2:
-							LRes.Content = CircArea3(Convert.ToDouble(TBA.Text), Convert.ToDouble(TBB.Text));
-
-							break;				
-					}
-
-					break;
-
-				case 3: //квадрат
-					switch (FormulaCB.SelectedIndex)
-					{
-						case 0:
-							LRes.Content = RectArea1(Convert.ToDouble(TBA.Text), Convert.ToDouble(TBA.Text));
-
-							break;
-
-						case 1:
-							LRes.Content = SquareArea(Convert.ToDouble(TBA.Text));
-
-							break;
-					}
-
-					break;
-
-			
+				MessageBox.Show("Неверный формат введённых данных. Повторите ввод.",
+				"Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Error);
 			}
 		}
-
 	}
 }

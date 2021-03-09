@@ -8,8 +8,8 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="#FF86E2A3">
         <Label Content="ПЛОЩАДЬ ФИГУРЫ" HorizontalAlignment="Left" Height="65" Margin="201,10,0,0" VerticalAlignment="Top" Width="422" FontWeight="Bold" FontSize="36" FontFamily="Verdana" Background="#FFEADADA" BorderBrush="#FF7A75D6" Foreground="#FFD65050"/>
-        <Label Content="1. Выберите вид фигуры" HorizontalAlignment="Left" Height="34" Margin="312,80,0,0" VerticalAlignment="Top" Width="210" FontSize="18"/>
-        <ComboBox x:Name="FigureCB" HorizontalAlignment="Left" Margin="332,119,0,0" VerticalAlignment="Top" Width="174" SelectedIndex="0" SelectionChanged="FigureCB_SelectionChanged">
+        <Label Content="1. Выберите вид фигуры" HorizontalAlignment="Left" Height="34" Margin="260,84,0,0" VerticalAlignment="Top" Width="210" FontSize="18"/>
+        <ComboBox x:Name="FigureCB" HorizontalAlignment="Left" Margin="280,123,0,0" VerticalAlignment="Top" Width="174" SelectedIndex="0" SelectionChanged="FigureCB_SelectionChanged">
             <ComboBoxItem Content="не выбрано"/>
             <ComboBoxItem Content="прямоугольник"/>
             <ComboBoxItem Content="круг"/>
@@ -21,10 +21,10 @@
             <ComboBoxItem Content="трапеция"/>
             <ComboBoxItem Content="эллипис"/>
         </ComboBox>
-        <Label Content="2. Выберите формулу" HorizontalAlignment="Left" Height="34" Margin="312,146,0,0" VerticalAlignment="Top" Width="210" FontSize="18"/>
-        <Label Content="3. Введите данные" HorizontalAlignment="Left" Height="34" Margin="312,212,0,0" VerticalAlignment="Top" Width="210" FontSize="18"/>
-        <ComboBox x:Name="FormulaCB" HorizontalAlignment="Left" Margin="332,185,0,0" VerticalAlignment="Top" Width="291" SelectedIndex="0" SelectionChanged="FormulaCB_SelectionChanged"/>
-        <TextBox x:Name="TBA" HorizontalAlignment="Left" Height="31" Margin="374,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" RenderTransformOrigin="0.5,0.5">
+        <Label Content="2. Выберите формулу" HorizontalAlignment="Left" Height="34" Margin="260,150,0,0" VerticalAlignment="Top" Width="210" FontSize="18"/>
+        <Label Content="3. Введите данные" HorizontalAlignment="Left" Height="34" Margin="260,216,0,0" VerticalAlignment="Top" Width="210" FontSize="18"/>
+        <ComboBox x:Name="FormulaCB" HorizontalAlignment="Left" Margin="280,189,0,0" VerticalAlignment="Top" Width="291" SelectedIndex="0" SelectionChanged="FormulaCB_SelectionChanged"/>
+        <TextBox x:Name="TBA" HorizontalAlignment="Left" Height="31" Margin="322,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" RenderTransformOrigin="0.5,0.5">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -34,7 +34,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <TextBox x:Name="TBB" HorizontalAlignment="Left" Height="31" Margin="374,288,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" RenderTransformOrigin="0.5,0.5">
+        <TextBox x:Name="TBB" HorizontalAlignment="Left" Height="31" Margin="322,292,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" RenderTransformOrigin="0.5,0.5">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -44,7 +44,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <TextBox x:Name="TBC" HorizontalAlignment="Left" Height="31" Margin="374,326,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" RenderTransformOrigin="0.5,0.5">
+        <TextBox x:Name="TBC" HorizontalAlignment="Left" Height="31" Margin="322,330,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" RenderTransformOrigin="0.5,0.5">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -54,12 +54,11 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <Label x:Name="L1" Content="" HorizontalAlignment="Left" Height="27" Margin="234,251,0,0" VerticalAlignment="Top" Width="126"/>
-        <Label x:Name="L2" Content="" HorizontalAlignment="Left" Height="27" Margin="234,283,0,0" VerticalAlignment="Top" Width="126"/>
-        <Label Content="" HorizontalAlignment="Left" Height="27" Margin="234,325,0,0" VerticalAlignment="Top" Width="126"/>
-        <Label x:Name="L3" Content="" HorizontalAlignment="Left" Height="27" Margin="234,325,0,0" VerticalAlignment="Top" Width="126"/>
-        <Button x:Name="Butt" Content="Рассчитать" HorizontalAlignment="Left" Margin="458,281,0,0" VerticalAlignment="Top" Width="123" Height="47" Click="Butt_Click"/>
-        <Label x:Name="LRes" Content="" HorizontalAlignment="Left" Margin="645,302,0,0" VerticalAlignment="Top" Width="90" Height="38"/>
+        <Label x:Name="L1" Content="" HorizontalAlignment="Left" Height="27" Margin="228,255,0,0" VerticalAlignment="Top" Width="80"/>
+        <Label x:Name="L2" Content="" HorizontalAlignment="Left" Height="27" Margin="228,287,0,0" VerticalAlignment="Top" Width="80"/>
+        <Label x:Name="L3" Content="" HorizontalAlignment="Left" Height="27" Margin="228,329,0,0" VerticalAlignment="Top" Width="80"/>
+        <Button x:Name="Butt" Content="Рассчитать" HorizontalAlignment="Left" Margin="406,285,0,0" VerticalAlignment="Top" Width="123" Height="47" Click="Butt_Click" FontSize="18" FontWeight="Bold"/>
+        <Label x:Name="LRes" Content="" HorizontalAlignment="Left" Margin="575,294,0,0" VerticalAlignment="Top" Width="102" Height="38" FontSize="18"/>
 
     </Grid>
 </Window>
